@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+python_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Motia
+.motia/
+.mermaid/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+
+# Logs
+*.log
+npm-debug.log*
+
+# Generated output
+output/
