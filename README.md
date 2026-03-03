@@ -11,24 +11,20 @@ A streamlined **multi-agent content generation system** built with [Motia](https
 
 ## Workflow
 
-```
-User submits URL → Firecrawl scrapes article → Twitter & LinkedIn agents run in parallel → Content scheduled via Typefully
-```
+```mermaid
+flowchart TD
+    A["ContentGenerationAPI\nPOST /generate-content"] --> B["ScrapeArticle\nScrapes article content using Firecrawl"]
+    B --> C["TwitterGenerate\nGenerates Twitter content\nusing Ollama Deepseek-R1"]
+    B --> D["LinkedinGenerate\nGenerates LinkedIn content\nusing Ollama Deepseek-R1"]
+    C --> E["ScheduleTwitter\nSchedules generated Twitter\npost using Typefully"]
+    D --> F["ScheduleLinkedin\nSchedules generated LinkedIn\npost using Typefully"]
 
-```
-API (POST /generate-content)
-    │
-    ▼
-Scrape Article (Firecrawl)
-    │
-    ├──────────────────┐
-    ▼                  ▼
-Twitter Agent      LinkedIn Agent
-(Deepseek-R1)      (Deepseek-R1)
-    │                  │
-    ▼                  ▼
-Schedule Twitter   Schedule LinkedIn
-(Typefully)        (Typefully)
+    style A fill:#1a1a2e,stroke:#4a9eff,color:#fff
+    style B fill:#1a1a2e,stroke:#22c55e,color:#fff
+    style C fill:#1a1a2e,stroke:#3b82f6,color:#fff
+    style D fill:#1a1a2e,stroke:#3b82f6,color:#fff
+    style E fill:#1a1a2e,stroke:#8b5cf6,color:#fff
+    style F fill:#1a1a2e,stroke:#8b5cf6,color:#fff
 ```
 
 ## Setup
